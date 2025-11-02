@@ -94,7 +94,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/backend/'
-STATIC_ROOT = '/app/static/'
+STATIC_ROOT = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/app/media/'
