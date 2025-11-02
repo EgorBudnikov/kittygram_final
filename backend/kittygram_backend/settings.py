@@ -99,6 +99,10 @@ STATIC_ROOT = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/app/media/'
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
