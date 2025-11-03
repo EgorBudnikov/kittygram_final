@@ -27,7 +27,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.12
-    - name: Install dependecies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip setuptools
         pip install flake8==6.0.0
@@ -62,8 +62,7 @@ jobs:
         with: 
           context: ./backend/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_backend
-
+          tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_backend:latest
 
   frontend_tests:
     runs-on: ubuntu-latest
@@ -108,6 +107,7 @@ jobs:
   
   build_nginx_and_push_to_docker_hub:
     runs-on: ubuntu-latest
+    needs: [backend_tests, frontend_tests]  # Добавлена зависимость
     steps: 
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -123,7 +123,8 @@ jobs:
         with: 
           context: ./nginx/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway
+          tags: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway:latest
+
   deploy:
     runs-on: ubuntu-latest
     needs: 
@@ -133,7 +134,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Copu docker-compose.yml via ssh
+      - name: Copy docker-compose.yml via ssh
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -149,15 +150,14 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          source: "docker-compose.yml"
-          target: "kittygram"
           script: |
             cd kittygram
-            sudo docker compose -f docker-compose.yml pull
-            sudo docker -f docker-compose.yml down
-            sudo docker -f docker-compose.yml -d up
-            sudo docker compose -f docker-compose.yml exec backend python manage.py migrate
-            sudo doccker compose -f docker-compose.yml exec backend python manage.py collectstatic
+            sudo docker compose pull
+            sudo docker compose down
+            sudo docker compose up -d
+            sudo docker compose exec backend python manage.py migrate
+            sudo docker compose exec backend python manage.py collectstatic --noinput
+
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
