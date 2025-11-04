@@ -1,6 +1,6 @@
 #  Kittygram
 
-[![CI/CD Status](https://github.com/Port-tf/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/Port-tf/kittygram_final/actions/workflows/main.yml)
+[![CI/CD Status](https://github.com/Port-tf/kittygram_final/workflows/CI%2FCD/badge.svg)](https://github.com/Port-tf/kittygram_final/actions)
 
 ##  Описание проекта
 
