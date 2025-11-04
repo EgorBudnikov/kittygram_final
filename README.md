@@ -1,6 +1,6 @@
 #  Kittygram
 
-[![CI/CD Status](https://github.com/Port-tf/kittygram_final/workflows/main.yml/badge.svg)](https://github.com/Port-tf/kittygram_final/actions)
+[![CI/CD Status](https://github.com/EgorBudnikov/kittygram_final/workflows/main.yml/badge.svg)](https://github.com/EgorBudnikov/kittygram_final/actions)
 
 ##  Описание проекта
 
@@ -60,6 +60,6 @@ npm run lint
 Проект использует GitHub Actions для автоматизации. Тестирование запускается при любом пуше в любую ветку. Сборка и деплой запускаются только при пуше в ветку main. После успешного деплоя отправляется уведомление в Telegram.
 
 ## Автор
-Port-tf - GitHub: @Port-tf
+Port-tf - GitHub: EgorBudnikov
 
 
