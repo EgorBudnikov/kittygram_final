@@ -7,7 +7,6 @@ try:
     print("dotenv loaded successfully")
 except ImportError as e:
     print(f"python-dotenv not available: {e}")
-    print("Using system environment variables")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
