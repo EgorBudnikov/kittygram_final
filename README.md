@@ -17,7 +17,7 @@ Kittygram - это социальная сеть для любителей ко�
 ##  Развертывание проекта
 
 ```bash
-git clone https://github.com/Port-tf/kittygram_final.git
+git clone https://github.com/EgorBudnikov/kittygram_final.git
 cd kittygram_final
 #  Создание .env файла
 "POSTGRES_DB=kittygram
@@ -60,6 +60,4 @@ npm run lint
 Проект использует GitHub Actions для автоматизации. Тестирование запускается при любом пуше в любую ветку. Сборка и деплой запускаются только при пуше в ветку main. После успешного деплоя отправляется уведомление в Telegram.
 
 ## Автор
-Port-tf - GitHub: EgorBudnikov
-
-
+GitHub: EgorBudnikov
