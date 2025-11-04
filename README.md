@@ -1,6 +1,6 @@
 #  Kittygram
 
-[![CI/CD Status](https://github.com/EgorBudnikov/kittygram_final/workflows/main.yml/badge.svg)](https://github.com/EgorBudnikov/kittygram_final/actions)
+![CI/CD Status](https://github.com/EgorBudnikov/kittygram_final/workflows/main.yml/badge.svg)
 
 ##  Описание проекта
 
