@@ -30,7 +30,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip setuptools
+        # Покажите содержимое requirements.txt
+        echo "=== Contents of requirements.txt ==="
+        cat ./backend/requirements.txt
+        echo "=== Installing dependencies ==="
         pip install -r ./backend/requirements.txt 
+        echo "=== Installed packages ==="
+        pip list
         pip install flake8==6.0.0
     - name: Test with flake8 and django tests
       env:
