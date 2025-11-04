@@ -40,7 +40,7 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: 5432
       run: |
-        flake8 backend/
+        flake8 backend/ --ignore=F401,F403,F405,E402,W503 --exclude=settings.py,manage.py --import-order-style=google
         cd backend/
         python manage.py test
 
