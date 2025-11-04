@@ -1,12 +1,8 @@
 import os
 from pathlib import Path
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-    print("dotenv loaded successfully")
-except ImportError as e:
-    print(f"python-dotenv not available: {e}")
+load_dotenv()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
